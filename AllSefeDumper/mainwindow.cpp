@@ -27,6 +27,7 @@ void MainWindow::showAddSiteWindow()
 
 void MainWindow::test()
 {
+    ui->statusbar->showMessage("TEst");
     qDebug() << "Test";
 }
 

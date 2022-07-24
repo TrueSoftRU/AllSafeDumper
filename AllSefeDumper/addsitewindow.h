@@ -2,6 +2,7 @@
 #define ADDSITEWINDOW_H
 
 #include <QMainWindow>
+#include "formsite.h"
 
 namespace Ui {
 class AddSiteWindow;
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::AddSiteWindow *ui;
+    QTabWidget *siteTab;
 };
 
 #endif // ADDSITEWINDOW_H
