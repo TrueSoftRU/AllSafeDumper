@@ -12,21 +12,25 @@ class FormSite : public QWidget
     Q_OBJECT
 
 public:
-    explicit FormSite(QWidget *parent = nullptr, QString nameSite = "", QString url = "", QString searchParametrs = "", bool noCast = false, bool command= false, bool tor = false, bool hex = false, bool riskLvl = false, bool win = false);
+    explicit FormSite(QWidget *parent = nullptr, QString nameSite = "", QString url = "", QString data = "",QString searchParametrs = "", bool noCast = false, bool command = false, bool tor = false, bool hex = false, bool riskLvl = false, bool win = false);
     ~FormSite();
     bool State = false;
 
 signals:
-    void TogleState();
+    void togleState();
+    QStringList readSite();
 
 public slots:
-    void buttonStartStop();
-    void SiteState();
+    void siteState();
+
+private slots:
+    QStringList getParametrsSite();
 
 private:
     Ui::FormSite *ui;
     QString _nameSite;
     QString _url;
+    QString _data;
     QString _searchParametrs;
     bool _noCast;
     bool _command;

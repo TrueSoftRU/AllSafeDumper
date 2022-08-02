@@ -17,7 +17,7 @@ public:
     ~AddSiteWindow();
 
 private slots:
-    void addSite();
+    void onClickedAddSite();
 
 private:
     Ui::AddSiteWindow *ui;

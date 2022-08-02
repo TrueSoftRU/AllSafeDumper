@@ -9,8 +9,7 @@ AddSiteWindow::AddSiteWindow(QWidget *parent, QTabWidget *tabWidget) :
 
     siteTab = tabWidget;
 
-    connect(ui->pushButton_add, &QPushButton::clicked, this, &AddSiteWindow::addSite);
-
+    connect(ui->pushButton_add, &QPushButton::clicked, this, &AddSiteWindow::onClickedAddSite);
 }
 
 AddSiteWindow::~AddSiteWindow()
@@ -18,17 +17,18 @@ AddSiteWindow::~AddSiteWindow()
     delete ui;
 }
 
-void AddSiteWindow::addSite()
+void AddSiteWindow::onClickedAddSite()
 {
 
     qDebug() << "test";
 
     QString nameSite = ui->lineEdit_nameSite->text();
     QString url = ui->lineEdit_siteUrl->text();
+    QString data = ui->lineEdit_data->text();
     QString searchParametrs = ui->lineEdit_searchParametrs->text();
 
     if(nameSite.length() > 0 && url.length() > 0){
-        siteTab->addTab(new FormSite(nullptr, nameSite, url, searchParametrs, ui->checkBox_noCast->checkState(), ui->checkBox_Command->checkState(),
+        siteTab->addTab(new FormSite(nullptr, nameSite, url, data, searchParametrs, ui->checkBox_noCast->checkState(), ui->checkBox_Command->checkState(),
                                      ui->checkBox_Tor->checkState(), ui->checkBox_Hex->checkState(), ui->checkBox_RiskLvL->checkState(), ui->checkBox_Win->checkState()), nameSite);
     }else{
         ui->statusbar->showMessage("Заполните все поля!", 3000);

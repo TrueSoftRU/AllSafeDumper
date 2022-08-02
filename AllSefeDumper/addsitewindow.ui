@@ -75,6 +75,21 @@
          <widget class="QLineEdit" name="lineEdit_searchParametrs"/>
         </item>
         <item>
+         <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Data:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_data"/>
+        </item>
+        <item>
          <widget class="QCheckBox" name="checkBox_noCast">
           <property name="text">
            <string>-no -Cast</string>

@@ -10,17 +10,24 @@ CONFIG += c++11
 
 SOURCES += \
     addsitewindow.cpp \
+    exportsitewindow.cpp \
+    filesystemasd.cpp \
     formsite.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qdynamiccheckbox.cpp
 
 HEADERS += \
     addsitewindow.h \
+    exportsitewindow.h \
+    filesystemasd.h \
     formsite.h \
-    mainwindow.h
+    mainwindow.h \
+    qdynamiccheckbox.h
 
 FORMS += \
     addsitewindow.ui \
+    exportsitewindow.ui \
     formsite.ui \
     mainwindow.ui
 
