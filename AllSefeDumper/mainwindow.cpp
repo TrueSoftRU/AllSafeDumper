@@ -57,7 +57,7 @@ void MainWindow::actionExportSites()
 
 
 
-    exportSiteWindow = new ExportSiteWindow(this, listSites);
+    exportSiteWindow = new ExportSiteWindow(this, ui->tabSites);
     exportSiteWindow->show();
 }
 

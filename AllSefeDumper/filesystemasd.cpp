@@ -52,9 +52,35 @@ void FileSystemASD::loadSites(QString path, QTabWidget *site)
     }
 }
 
+void FileSystemASD::exportSites(QString path, QStringList selectedSites, QTabWidget *sites)
+{
+    int countSeccessfullSites = 0;
+    //qDebug() << path << " " << selectedSites << " " << sites;
+
+    QFile file(path);
+    if (file.open(QIODevice::ReadWrite)) {
+        QTextStream stream(&file);
+        stream << versionProg << "\n";
+        for(int i = 0; i < selectedSites.count(); i++){
+            for(int k = 0; k < sites->count(); k++){
+                if(selectedSites[i] == sites->tabText(k)){
+                    FormSite *tabSite = (FormSite*)sites->widget(k);
+                    QStringList parametrsSite = emit tabSite->readSite();
+                    stream << parametrsSite[0] << ", " << "\"" << parametrsSite[1] << "\"" << "," << "--data=\"" << parametrsSite[2] << "\"" << "," << "--noCast=\"" << parametrsSite[3] << "\""
+                                               << "," << "--Command=\"" << parametrsSite[4] << "\"" << "," << "--Tor=\"" << parametrsSite[5] << "\"" << "," << "--Hex=\"" << parametrsSite[6] << "\""
+                                               << "," << "--RiskLvL=\"" << parametrsSite[7] << "\"" << "," << "--Win=\"" << parametrsSite[8] << "\""
+                                               << "," << "--SearchParameters=\"" << parametrsSite[9] << "\"" << "\n";
+                    countSeccessfullSites++;
+                }
+            }
+        }
+        emit exportedSuccessfully(countSeccessfullSites);
+    }
+}
+
 bool FileSystemASD::checkVersionFile(QString version)
 {
-    QString versionProg = "1.0";
+
     return version == versionProg ? true : false;
 }
 
@@ -73,5 +99,7 @@ QStringList FileSystemASD::readSite(QString site)
     }
     return parametrsSite;
 }
+
+
 
 
