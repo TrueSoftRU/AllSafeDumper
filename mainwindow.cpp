@@ -39,7 +39,7 @@ void MainWindow::showAddSiteWindow()
 
 void MainWindow::actionImportSites()
 {
-    QString path = QFileDialog::getOpenFileName(this, "Выбрать файл", "C:/Users/", "ASD File (*.asd);");
+    QString path = QFileDialog::getOpenFileName(this, "Выбрать файл", "", "ASD File (*.asd)");
     //qDebug() << emit readFileASD(path);
     emit importSites(path, ui->tabSites);
 }
