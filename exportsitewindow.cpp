@@ -65,7 +65,7 @@ void ExportSiteWindow::workerExportListSite(QString textCheckBox)
 
 void ExportSiteWindow::exportSites()
 {
-    QString savePath = QFileDialog::getSaveFileName(this, "Сохранить файл как", "sites", "*.asd");
+    QString savePath = QFileDialog::getSaveFileName(0, "Сохранить файл как", "sites", "*.asd");
     emit exportedSites(savePath, exportListSite, _sites);
 }
 

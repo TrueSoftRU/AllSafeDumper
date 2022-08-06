@@ -8,6 +8,7 @@
 #include "addsitewindow.h"
 #include "filesystemasd.h"
 #include "exportsitewindow.h"
+#include "settings.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -39,6 +40,7 @@ private:
     AddSiteWindow *addSiteWindow;
     FileSystemASD *fileSystem;
     ExportSiteWindow *exportSiteWindow;
+    Settings *settings;
 
 };
 #endif // MAINWINDOW_H

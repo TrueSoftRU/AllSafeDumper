@@ -15,7 +15,8 @@ SOURCES += \
     formsite.cpp \
     main.cpp \
     mainwindow.cpp \
-    qdynamiccheckbox.cpp
+    qdynamiccheckbox.cpp \
+    settings.cpp
 
 HEADERS += \
     addsitewindow.h \
@@ -23,7 +24,8 @@ HEADERS += \
     filesystemasd.h \
     formsite.h \
     mainwindow.h \
-    qdynamiccheckbox.h
+    qdynamiccheckbox.h \
+    settings.h
 
 FORMS += \
     addsitewindow.ui \

@@ -9,21 +9,29 @@ MainWindow::MainWindow(QWidget *parent)
    // connect(ui->menu, SIGNAL(aboutToShow()), this, SLOT(test()));
 
 
+    settings = new Settings(this);
+
+    bool tabsClosable = settings->loadTabsClosable();
+    ui->tabSites->setTabsClosable(tabsClosable);
+    ui->action_HideShowDelitedSite->setChecked(tabsClosable);
 
     fileSystem = new FileSystemASD(this);
 
     connect(ui->action_import, &QAction::triggered, this, &MainWindow::actionImportSites);
     connect(ui->action_export, &QAction::triggered, this, &MainWindow::actionExportSites);
-    connect(ui->action_HideShowDelitedSite, &QAction::toggled, [this](bool check){
+    connect(ui->action_HideShowDelitedSite, &QAction::toggled, this, [this](bool check){
         ui->tabSites->setTabsClosable(check);
+        emit settings->saveSettings(check);
     });
 
     connect(ui->action_addSite, &QAction::triggered, this, &MainWindow::showAddSiteWindow);
-    connect(ui->tabSites, &QTabWidget::tabCloseRequested, [this](int index){
+    connect(ui->tabSites, &QTabWidget::tabCloseRequested, this, [this](int index){
        ui->tabSites->removeTab(index);
     });
 
     connect(this, &MainWindow::importSites, fileSystem, &FileSystemASD::loadSites);
+
+
 }
 
 MainWindow::~MainWindow()
