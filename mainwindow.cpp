@@ -15,13 +15,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabSites->setTabsClosable(tabsClosable);
     ui->action_HideShowDelitedSite->setChecked(tabsClosable);
 
+    bool AutoLog = settings->loadAutoLog();
+    ui->action_CheckAutoLogSave->setChecked(AutoLog);
+
     fileSystem = new FileSystemASD(this);
 
     connect(ui->action_import, &QAction::triggered, this, &MainWindow::actionImportSites);
     connect(ui->action_export, &QAction::triggered, this, &MainWindow::actionExportSites);
+
     connect(ui->action_HideShowDelitedSite, &QAction::toggled, this, [this](bool check){
         ui->tabSites->setTabsClosable(check);
-        emit settings->saveSettings(check);
+        emit settings->saveSettings(check, ui->action_CheckAutoLogSave->isChecked());
+    });
+
+    connect(ui->action_CheckAutoLogSave, &QAction::toggled, this, [this](bool check){
+        emit settings->saveSettings(ui->action_HideShowDelitedSite->isChecked(), check);
     });
 
     connect(ui->action_addSite, &QAction::triggered, this, &MainWindow::showAddSiteWindow);

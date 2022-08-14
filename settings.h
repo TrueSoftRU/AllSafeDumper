@@ -11,12 +11,15 @@ public:
     explicit Settings(QObject *parent = nullptr);
 
 signals:
-    void saveSettings(bool TabsClosable);
+    void saveSettings(bool TabsClosable, bool AutoLog);
 
 public slots:
     bool loadTabsClosable();
+    bool loadAutoLog();
+
 private slots:
     void saveTabsClosable(bool check);
+    void saveAutoLog(bool check);
 
 private:
     QSettings *settings;

@@ -55,7 +55,6 @@ void FileSystemASD::loadSites(QString path, QTabWidget *site)
 void FileSystemASD::exportSites(QString path, QStringList selectedSites, QTabWidget *sites)
 {
     int countSeccessfullSites = 0;
-    //qDebug() << path << " " << selectedSites << " " << sites;
 
     QFile file(path);
     if (file.open(QIODevice::ReadWrite)) {

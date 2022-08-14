@@ -54,7 +54,7 @@
      <x>0</x>
      <y>0</y>
      <width>824</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMain">
@@ -71,6 +71,7 @@
      <string>Настройки</string>
     </property>
     <addaction name="action_HideShowDelitedSite"/>
+    <addaction name="action_CheckAutoLogSave"/>
    </widget>
    <addaction name="menuMain"/>
    <addaction name="menuSettings"/>
@@ -99,7 +100,15 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Вкл/Выкл удаления сайтов</string>
+    <string>Вкл/Выкл Удаления сайтов</string>
+   </property>
+  </action>
+  <action name="action_CheckAutoLogSave">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Вкл/Выкл Сохранение логов</string>
    </property>
   </action>
  </widget>
